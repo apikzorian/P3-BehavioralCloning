@@ -3,7 +3,7 @@
 
 ## Synopsis
 
-In Project #3 - Behavior Cloning, we were asked to train a neural network that would enable a car to drive itself. Using a driving simulator provided by the amazing people at Udacity, we could use the "Training Mode" and drive around a track, collecting images taken by 3 cameras around the car, as well as driving specifications. These images are stored locally, and the paths to each set of images, along with the driving specifications at the moment the picture was taken, are stored in a spreadsheet called driving_log.csv. These specifications include speed, steering angle, and throttle. With this information, one should be able to train a neural network to associate each image with a specific steering angle. Once this model is compiled, we could activate the "Autonomous Mode" in the simulator, and by running the model, the car should be able to continuously drive around the track.
+In Project #3 - Behavior Cloning, we were asked to train a neural network that would enable a car to drive itself around a simulated track. Using a driving simulator provided by the amazing people at Udacity, we could use the "Training Mode" and drive around a track, simultaneously collecting images taken by 3 cameras around the car, as well as driving specifications. These images are stored locally, and the paths to each set of images, along with the driving specifications at the moment the picture was taken, are stored in a spreadsheet called driving_log.csv. These specifications include speed, steering angle, and throttle. With this information, one should be able to train a neural network to associate each image with a specific steering angle. Once this model is compiled, we could activate the "Autonomous Mode" in the simulator, and by running the model, the car should be able to continuously drive around the track. We were able to complete this project by using a number of augmentation techniques and experimenting with different types of models to achieve the ultimate goal of driving a full lap without crossing the lines of the track.
 
 ## Requirements
 
@@ -35,8 +35,8 @@ In Project #3 - Behavior Cloning, we were asked to train a neural network that w
 - `model.py` - The script used to create and train the model.
 - `model.h5` - Model weights
 - `drive.py`- The script to drive the car
-- `driving_log.csv` - Each row in this sheet correlates your image with the steering angle, throttle, brake, and speed of your car
-- `IMG` - This folder contains all the frames of your driving.
+- `driving_log.csv` - Each row in this sheet correlates to an image with the steering angle, throttle, brake, and speed of the car
+- `IMG` - This folder contains the images taken while driving. Images are taken from the front, left, and right cameras on the car
 
 ## Data Collection and Analysis
 
@@ -91,15 +91,11 @@ As mentioned before, we were provided with 8,036 images from each camera to trai
 
 ### Removing Extreme Data
 
-The most useful step in augmenting the data was removing data that would bias the model too far to the right or left. I provided my model with a threshold value which would decrease incrementally with each epoch. My model would reject values that were less than this threshold value, so as the epochs got higher and higher, my model would be accepting smaller and smaller values. This was an extremeley important step, as it allowed the car to drive around the track without being exposed steering angles higher than 0.1, making it take less drastic turns and swerve less on the road.
+The most useful step in augmenting the data was removing data that would bias the model too far to the right or left. We provided the model with a threshold value which would decrease incrementally with each epoch. The model would reject values that were less than this threshold value, so as the epochs got higher and higher, my model would be accepting smaller and smaller values. If the angle was higher than 0.1, we were refer to the threshold to see if this angle was acceptable. If it was higher than 0.1, it would be rejected. This was an extremeley important step, as it allowed the car to drive around the track without being exposed steering angles higher than 0.1, making it take less drastic turns and swerve less on the road. 
 
-## Training
+## Training the Model
 
-For our model, we utilized a keras fit_generator model. This trains the model on data that is given batch-by-batch. The advantage of using the fit_generator is that it lets you augment your data on your CPU while training your model in parallel on the GPU. The generator keeps taking batches until it has received enough, so it is easy to feed it copious amounts of data.
-
-### Training vs Validation
-
-We randomly removed 10% of the training data to use for validation data. We generated a fit_generator for both the training and validation data, and gave both to our model.
+For our model, we utilized a keras fit_generator model. This trains the model on data that is given batch-by-batch. The advantage of using the fit_generator is that it lets you augment your data on your CPU while training your model in parallel on the GPU. The generator keeps taking batches until it has received enough, so it is easy to feed it copious amounts of data. We randomly removed 10% of the training data to use for validation data. We generated a fit_generator for both the training and validation data, and gave both to our model. Our model accepted 10 samples of values for validation. The resulting validation loss, along with the actual performance along the track, would be the final determining factors of our model's fitness.
 
 ### Model Structure
 
@@ -108,11 +104,11 @@ Below is the basic structure of the model used in this project:
 ![alt_tag](https://s23.postimg.org/a8aot91yz/Screen_Shot_2017_01_10_at_7_34_40_PM.jpg)
 
 ### Model Specifications
-The model was built using keras and used an Adam Optimizer with 1e-4 learning rate. We originally tried using the default Adam optimizer provided by Keras, but received better results when given the option of controlling the learning rate. The model is trained on 9 epochs with 40,000 samples per epoch, with a batch size of 250. Loss is computed as `mean_squared_error` and we used `mean_absoulte_error` as our metric. 
+The model was built using keras and used an Adam Optimizer with 1e-4 learning rate. We originally tried using the default Adam optimizer provided by Keras, but received better results when given the option of controlling the learning rate. The model is trained on 9 epochs with 40,000 samples per epoch, with a batch size of 250. Loss is computed as `mean_squared_error` and we used `mean_absoulte_error` as our metric. The advantage of using `mean_absolute_error` is that it gives a real representation of how far off your predicted values are from the targeted values. This was helpful in this project, as we were able to see by how much the steering angle was varying with each epoch of each model.
 
 
 ## Performance
-Our model performed very well, as the car was able to continuously drive around the track for hours with our final model. The final validation loss was 0.0416.
+Our model performed very well, as the car was able to continuously drive around the track for hours with our final model. The final validation loss was 0.0416. The final `mean_absolute_error` of validation was 
 
 ![alt tag](https://s27.postimg.org/q0hkam0gj/Screen_Shot_2017_01_09_at_11_52_43_PM.jpg)
 
