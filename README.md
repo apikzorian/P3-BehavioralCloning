@@ -104,14 +104,13 @@ Below is the basic structure of the model used in this project:
 ![alt_tag](https://s23.postimg.org/a8aot91yz/Screen_Shot_2017_01_10_at_7_34_40_PM.jpg)
 
 ### Model Specifications
-The model was built using keras and used an Adam Optimizer with 1e-4 learning rate. We originally tried using the default Adam optimizer provided by Keras, but received better results when given the option of controlling the learning rate. The model is trained on 9 epochs with 40,000 samples per epoch, with a batch size of 250. Loss is computed as `mean_squared_error` and we used `mean_absoulte_error` as our metric. The advantage of using `mean_absolute_error` is that it gives a real representation of how far off your predicted values are from the targeted values. This was helpful in this project, as we were able to see by how much the steering angle was varying with each epoch of each model.
+The model was built using keras and used an Adam Optimizer with 1e-4 learning rate. We originally tried using the default Adam optimizer provided by Keras, but received better results when given the option of controlling the learning rate. The model is trained on 9 epochs with 50,000 samples per epoch, with a batch size of 250. Loss is computed as `mean_squared_error` and we used `mean_absoulte_error` as our metric. The advantage of using `mean_absolute_error` is that it gives a real representation of how far off your predicted values are from the targeted values. This was helpful in this project, as we were able to see by how much the steering angle was varying with each epoch of each model.
 
 
 ## Performance
-Our model performed very well, as the car was able to continuously drive around the track for hours with our final model. The final validation loss was 0.0416. The final `mean_absolute_error` of validation was 
+Our model performed very well, as the car was able to continuously drive around the track for hours with our final model. The final validation loss was 0.0437. The final `mean_absolute_error` of validation was 0.1685. Both of these values were very close to the final training values, which lead us to believe that our model was well equipped in predicting correct steering angles for the track.
 
-![alt tag](https://s27.postimg.org/q0hkam0gj/Screen_Shot_2017_01_09_at_11_52_43_PM.jpg)
-
+![alt tag](https://s30.postimg.org/pigaqkt8x/Screen_Shot_2017_01_10_at_11_12_17_PM.jpg)
 
 
 To run the model, activate the simulator and run:
@@ -121,7 +120,7 @@ To run the model, activate the simulator and run:
 You can see a demo of my model [here] (https://youtu.be/_0kk6iRglls)
 
 ## Reflection
-This project helped bring to light some of the fundamentals of machine learning. Specifically, the need for a large amount of data. The more data your model is provided, the better it can understand and predict accurate output. By increasing my samples/epoch from 20,000 to 40,000, we were able to weave around turns we were unable to make before. Data augmentation was the truly the most valuable lesson, as we were able to take a small amount of data and produce countless versinos of it that covered a multitude of scenarios that our car could encounter. 
+This project helped bring to light some of the fundamentals of machine learning. Specifically, the need for a large amount of data. The more data your model is provided, the better it can understand and predict accurate output. By increasing my samples/epoch from 20,000 to 50,000, we were able to weave around turns we were unable to make before. Data augmentation was the truly the most valuable lesson, as we were able to take a small amount of data and produce countless versinos of it that covered a multitude of scenarios that our car could encounter. 
 
 ## Acknowledments
 Special thanks to Tanuj Thapliyal for helping me build my new computer, fully equiped with an NVIDIA Titan X, Vivek Yadav for inspiring myself, as well as most of our Udacity classmates, with his many augmentation techniques, Brok Bucholtz for telling me when it's time to abandon everything I've done and start fresh, and to all my classmates on Slack who help us preserve our sanity and learn together.
