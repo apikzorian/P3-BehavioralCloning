@@ -9,26 +9,26 @@ In Project #3 - Behavior Cloning, we were asked to train a neural network that w
 
 ### Packages & Libraries
 
-- [Python 3.5] (https://www.continuum.io/downloads)
-- [TensorFlow] (https://www.tensorflow.org/versions/)
-- [Keras] (https://keras.io/)
-- [numpy] (https://anaconda.org/anaconda/numpy)
-- [flask-socketio] (https://anaconda.org/pypi/flask-socketio)
-- [eventlet] (https://anaconda.org/conda-forge/eventlet)
-- [pillow] (https://anaconda.org/anaconda/pillow)
-- [h5py] (https://anaconda.org/conda-forge/h5py)
-- [OpenCV] (https://anaconda.org/menpo/opencv3)
+- [Python 3.5](https://www.continuum.io/downloads)
+- [TensorFlow](https://www.tensorflow.org/versions/)
+- [Keras](https://keras.io/)
+- [numpy](https://anaconda.org/anaconda/numpy)
+- [flask-socketio](https://anaconda.org/pypi/flask-socketio)
+- [eventlet](https://anaconda.org/conda-forge/eventlet)
+- [pillow](https://anaconda.org/anaconda/pillow)
+- [h5py](https://anaconda.org/conda-forge/h5py)
+- [OpenCV](https://anaconda.org/menpo/opencv3)
 
 ### Simulator: 
-- [Linux] (https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f0f7_simulator-linux/simulator-linux.zip)
-- [macOS] (https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f290_simulator-macos/simulator-macos.zip)
-- [Windows32] (https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f4b6_simulator-windows-32/simulator-windows-32.zip)
-- [Windows64] (https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f3a4_simulator-windows-64/simulator-windows-64.zip)
+- [Linux](https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f0f7_simulator-linux/simulator-linux.zip)
+- [macOS](https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f290_simulator-macos/simulator-macos.zip)
+- [Windows32](https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f4b6_simulator-windows-32/simulator-windows-32.zip)
+- [Windows64](https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5831f3a4_simulator-windows-64/simulator-windows-64.zip)
 
 ### Other:
 
-- [Training data] (https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip)
-- [Original drive.py] (https://d17h27t6h515a5.cloudfront.net/topher/2017/January/586c4a66_drive/drive.py)
+- [Training data](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip)
+- [Original drive.py](https://d17h27t6h515a5.cloudfront.net/topher/2017/January/586c4a66_drive/drive.py)
 
 ## Project Structure
 - `model.json`- Model architecture
