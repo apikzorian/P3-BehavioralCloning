@@ -117,7 +117,7 @@ To run the model, activate the simulator and run:
 
 `python drive.py model.py`
 
-You can see a demo of my model [here] (https://youtu.be/_0kk6iRglls)
+You can see a demo of my model [here](https://youtu.be/_0kk6iRglls)
 
 ## Reflection
 This project helped bring to light some of the fundamentals of machine learning. Specifically, the need for a large amount of data. The more data your model is provided, the better it can understand and predict accurate output. By increasing my samples/epoch from 20,000 to 50,000, we were able to weave around turns we were unable to make before. Data augmentation was the truly the most valuable lesson, as we were able to take a small amount of data and produce countless versinos of it that covered a multitude of scenarios that our car could encounter. 
