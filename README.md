@@ -56,25 +56,25 @@ We spent a good amount of time collecting our own data but after many failed att
 
 The images produced by the simulator are in `.jpg` format and its dimensions are `160 x 320 x 3`. Below are three examples of images taken from the left, center, and right cameras, respectively:
 
-![alt tag](https://s23.postimg.org/b8qy3p7bf/rsz_left_pic.png)
+![alt tag](https://image.ibb.co/cwmion/left_pic.png)
 
 
-![alt tag](https://s23.postimg.org/mwkzy8wgb/rsz_center_pic.png)
+![alt tag](https://image.ibb.co/c4spTn/center_pic.png)
 
 
-![alt tag](https://s23.postimg.org/qewzumxcb/rsz_right_pic.png)
+![alt tag](https://image.ibb.co/cmCdM7/right_pic.png)
 
 
 ### Cropping
 One improvement we made to the images was cropping 20% from the top and bottom of the image. I did this to help the neural network train more efficiently. By cutting out the sky/trees and the hood of the car, it would be focusing as much as possible on the features on the road. Below, you can see the center image from above image with the sky and hood of the car cropped out:
 
-![alt tag](https://s23.postimg.org/qiqtaw2tn/rsz_cropped2.png)
+![alt tag](https://image.ibb.co/khCpTn/cropped2.png)
 
 
 ### Resizing the image
 By making the image smaller, we reduced the number of features the model needs to interpret, thereby making it easier to process the image. I reduced mine to `64 x 64` to make it about the size of a thumbnail. Below, you can see a resized version of the previous image:
 
-![alt tag](https://s23.postimg.org/fkfjspe8b/rsz_resized64.png)
+![alt tag](https://image.ibb.co/kiy7ES/resized64.png)
 
 Note: These two steps were done in both model.py and drive.py, to make sure the images fed to the model during testing were consistent with the images it was trained on. This is very important, as the model cannot be expected to drive the car autonomously with images being fed to it that are unrepresentative of the images it received during training.
 
@@ -110,7 +110,7 @@ The model was built using keras and used an Adam Optimizer with 1e-4 learning ra
 ## Performance
 Our model performed very well, as the car was able to continuously drive around the track for hours with our final model. The final validation loss was 0.0437. The final `mean_absolute_error` of validation was 0.1685. Both of these values were very close to the final training values, which lead us to believe that our model was well equipped in predicting correct steering angles for the track.
 
-![alt tag](https://s30.postimg.org/pigaqkt8x/Screen_Shot_2017_01_10_at_11_12_17_PM.jpg)
+![alt tag](https://image.ibb.co/iAyUTn/Screenshot_from_2017_01_09_21_02_37.png)
 
 
 To run the model, activate the simulator and run:
